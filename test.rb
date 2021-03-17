@@ -4,12 +4,12 @@ apps = {
     "ruby" => "ruby task.rb",
 }
 
-puts "| language | time |"
-puts "|---|---|"
+puts "| language | time | result |"
+puts "|---|---|---|"
 apps.each do |app, cmd|
     start = Time.now
-    `#{cmd}`
+    result = `#{cmd} input.txt`
     finish = Time.now
     elapsed_time = finish - start
-    puts "| #{app} | #{elapsed_time} |"
+    puts "| #{app} | #{elapsed_time} | #{result.chomp} |"
 end
